@@ -1,4 +1,4 @@
-﻿namespace PumpManagement.Data
+﻿namespace PumpManagement.DomainClasses
 {
     public class Mode
     {

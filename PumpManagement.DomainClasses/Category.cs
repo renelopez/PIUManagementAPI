@@ -1,18 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace PumpManagement.Data
+namespace PumpManagement.DomainClasses
 {
-    public class Zone
+    public class Category
     {
-        private ICollection<Pumper> _pumpers;
-
-        public Zone()
+        private ICollection<Pumper> _pumpers; 
+        public Category()
         {
             _pumpers=new List<Pumper>();
         }
-
- 
-        public int ZoneId { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Pumper> Pumpers
         {

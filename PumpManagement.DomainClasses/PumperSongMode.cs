@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PumpManagement.Data
+namespace PumpManagement.DomainClasses
 {
     public class PumperSongMode
     {
