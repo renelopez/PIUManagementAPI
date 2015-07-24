@@ -6,12 +6,11 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GenericServices;
 using PumpManagement.DomainClasses;
 
 namespace PumpManagement.DataLayer
 {
-    public class PumpManagementContext : DbContext,IGenericServicesDbContext
+    public class PumpManagementContext : DbContext
     {
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -25,5 +24,18 @@ namespace PumpManagement.DataLayer
         public DbSet<SongMode> SongModes { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<Zone> Zones { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PumperTournament>()
+                .HasRequired(a=>a.Pumper)
+                .WithMany()
+                .HasForeignKey(u=>u.PumperId).WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PumperTournament>()
+                .HasRequired(a => a.Tournament)
+                .WithMany()
+                .HasForeignKey(u => u.TournamentId).WillCascadeOnDelete(false);
+        }
     }
 }

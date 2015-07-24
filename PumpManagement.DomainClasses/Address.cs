@@ -1,10 +1,12 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PumpManagement.DomainClasses
 {
     public class Address    
     {
-        public int Id { get; set; }
+        [Key]
+        public int AddressId { get; set; }
         public  string Name { get; set; }
         public  int ExternalNumber { get; set; }
         public  int InternalNumber { get; set; }
@@ -14,11 +16,7 @@ namespace PumpManagement.DomainClasses
         public  string State { get; set; }
         public  string Type { get; set; }
 
-        public int LocalId { get; set; }
         public int PumperId { get; set; }
-
-        [ForeignKey("LocalId")]
-        public virtual Local Local { get; set; }
 
         [ForeignKey("PumperId")]
         public Pumper Pumper { get; set; }

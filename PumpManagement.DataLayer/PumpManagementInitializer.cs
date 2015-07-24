@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GenericServices;
 using PumpManagement.DomainClasses;
 
 namespace PumpManagement.DataLayer
@@ -13,17 +12,44 @@ namespace PumpManagement.DataLayer
     {
         protected override void Seed(PumpManagementContext context)
         {
-            var songs=new List<Song>()
+            var pumpers = new List<Pumper>()
             {
-                new Song() {Author = "Rene",BPM = 223,Genre = "M",Name = "Que de raro tiene",SongId = 1},
-                new Song() {Author = "Rene1",BPM = 223,Genre = "M",Name = "Que de raro tiene",SongId = 1},
-                new Song() {Author = "Rene2",BPM = 223,Genre = "M",Name = "Que de raro tiene",SongId = 1},
-                new Song() {Author = "Rene3",BPM = 223,Genre = "M",Name = "Que de raro tiene",SongId = 1},
-                new Song() {Author = "Rene4",BPM = 223,Genre = "M",Name = "Que de raro tiene",SongId = 1}
+                new Pumper()
+                {
+                    Id = 1,
+                    Name = "Rene",
+                    LastName = "Lopez",
+                    NickName = "Renex",
+                    Email = "rene.cano@hotmail.com",
+                    Phone = "36052916",
+                    BirthDate = Convert.ToDateTime("24/04/1988"),
+                    CaloriesBurned = 20,
+                    DebutDate = Convert.ToDateTime("12/12/2006"),
+                    PhotoUrl = "http://www.gravatar.com/avatar/0cf15665a9146ba852bf042b0652780a?s=200",
+                    Addresses = new List<Address>()
+                    {
+                        new Address()
+                        {
+                            AddressId = 1,
+                            City = "Guadalajara",
+                            Colony = "Jardines de San Francisco",
+                            ExternalNumber = 23123,
+                            InternalNumber = 982,
+                            Name = "Pablo Valdez",
+                            PostalCode = 44760,
+                            State = "Jalisco",
+                        }
+                    },
+                    Locals = new List<Local>()
+                    {
+                        new Local()
+                        {
+                            LocalId = 1,
+                            Name="Rockoparty"
+                        }
+                    }
+                }
             };
-
-            context.Songs.AddRange(songs);
-            var status=context.SaveChangesWithCheckingAsync();
         }
     }
 }

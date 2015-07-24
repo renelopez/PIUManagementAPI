@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
-using GenericServices;
+using PumpManagement.DataLayer.QueryCommandObjects;
 
 namespace PumpManagement.DataLayer
 {
@@ -13,13 +13,12 @@ namespace PumpManagement.DataLayer
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(GetType().Assembly).AsImplementedInterfaces();
-            builder.RegisterAssemblyTypes(typeof (IListService).Assembly).AsImplementedInterfaces();
 
             builder.RegisterType<PumpManagementContext>()
                 .As<PumpManagementContext>()
-                .As<IGenericServicesDbContext>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<ListSongsQuery>().As<ListSongsQuery>();
 
             Database.SetInitializer(new PumpManagementInitializer());
         }

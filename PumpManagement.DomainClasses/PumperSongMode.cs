@@ -12,8 +12,8 @@ namespace PumpManagement.DomainClasses
         [ForeignKey("PumperId")]
         public virtual Pumper Pumper { get; set; }
 
-        public int SongModeID { get; set; }
-        public int PumperID { get; set; }
+        public int SongModeId { get; set; }
+        public int PumperId { get; set; }
 
         public int Score { get; set; }
         public string Grade { get; set; }
