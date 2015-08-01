@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PumpManagement.DomainClasses
@@ -13,6 +14,7 @@ namespace PumpManagement.DomainClasses
             _machines=new List<Machine>();
             _tournaments=new List<Tournament>();
         }
+        [Key]
         public int LocalId { get; set; }
         public string Name { get; set; }
         public int StartTime { get; set; }
@@ -20,7 +22,7 @@ namespace PumpManagement.DomainClasses
         public string StartDay { get; set; }
         public string EndDay { get; set; }
 
-        public int AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         [ForeignKey("AddressId")]
         public virtual Address Address { get; set; }

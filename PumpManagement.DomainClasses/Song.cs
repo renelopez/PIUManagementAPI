@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PumpManagement.DomainClasses
 {
@@ -10,6 +11,7 @@ namespace PumpManagement.DomainClasses
         {
             _songModes=new List<SongMode>();
         }
+        [Key]
         public int SongId { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }

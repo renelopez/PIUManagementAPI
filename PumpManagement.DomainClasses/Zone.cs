@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PumpManagement.DomainClasses
 {
@@ -11,7 +12,7 @@ namespace PumpManagement.DomainClasses
             _pumpers=new List<Pumper>();
         }
 
- 
+        [Key]
         public int ZoneId { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Pumper> Pumpers

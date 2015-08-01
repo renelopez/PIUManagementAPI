@@ -16,7 +16,7 @@ namespace PumpManagement.DomainClasses
         public  string State { get; set; }
         public  string Type { get; set; }
 
-        public int PumperId { get; set; }
+        public int? PumperId { get; set; }
 
         [ForeignKey("PumperId")]
         public Pumper Pumper { get; set; }

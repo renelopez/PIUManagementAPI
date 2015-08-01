@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PumpManagement.DomainClasses
@@ -12,6 +13,8 @@ namespace PumpManagement.DomainClasses
         {
             _pumperTournaments=new List<PumperTournament>();
         }
+
+        [Key]
         public int TournamentId { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
@@ -20,7 +23,7 @@ namespace PumpManagement.DomainClasses
         [ForeignKey("LocalId")]
         public Local Local { get; set; }
 
-        public int LocalId { get; set; }
+        public int? LocalId { get; set; }
         public virtual ICollection<PumperTournament> PumperTournaments
         {
             get { return _pumperTournaments; }

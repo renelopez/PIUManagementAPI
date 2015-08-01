@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PumpManagement.DomainClasses
@@ -21,7 +22,8 @@ namespace PumpManagement.DomainClasses
             _pumperTournaments = new List<PumperTournament>();
         }
 
-        public int Id { get; set; }
+        [Key]
+        public int PumperId { get; set; }
         public  string Name { get; set; }
         public  string LastName { get; set; }
         public string NickName { get; set; }
@@ -32,7 +34,7 @@ namespace PumpManagement.DomainClasses
         public  DateTime DebutDate { get; set; }
         public  string PhotoUrl { get; set; }
 
-        public int ZoneId { get; set; }
+        public int? ZoneId { get; set; }
 
         [ForeignKey("ZoneId")]
         public virtual Zone Zone { get; set; }
